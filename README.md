@@ -67,10 +67,10 @@ Begin your journey by entering the sacred arXiv link into the designated field. 
 2. **The Downloading Ritual** 📥
 Upon submitting your arXiv link, Athena's Oracle will commence the downloading ritual. Watch as the document is summoned from the digital ethers into the realm of the Oracle. A message of "Download Successful" shall herald the completion of this step, marking the document's readiness for the next phase of enlightenment.
 
-3.** Generating the Sacred Embeddings** 🔮
+3.**Generating the Sacred Embeddings** 🔮
 With the document now within Athena's grasp, the Oracle shall begin the arcane process of generating embeddings. These embeddings are the essence of the document's knowledge, transformed into a form that Athena's Oracle can comprehend and utilize in its wisdom-giving endeavors.
 
-4.** Choosing the Parchment** 📜
+4.**Choosing the Parchment** 📜
 With the embeddings crafted, you must now choose the file — the specific parchment of knowledge you wish to query. This step is crucial, for it determines the source of the wisdom Athena's Oracle will provide. Select wisely, and let your intuition guide you.
 
 5. **Commencing the Dialogue with Athena** 🗣️
