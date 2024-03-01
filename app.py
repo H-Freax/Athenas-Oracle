@@ -44,7 +44,7 @@ else:
 
 
 # create the app
-st.title("Welcome to Freax's arxiv GPT")
+st.title("🔎 Welcome to Athena's Oracle")
 
 chosen_files = st.multiselect(
     "Choose files to search", embed_pdf.get_all_index_files(), default=None

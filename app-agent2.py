@@ -14,7 +14,7 @@ from langchain.agents import AgentExecutor
 with st.sidebar:
     openai_api_key = st.secrets["OPENAI_API_KEY"]
 
-st.title("🔎 Freax's GPT2 - Chat with search")
+st.title("🔎 Athena's Oracle2 - Chat with search")
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [

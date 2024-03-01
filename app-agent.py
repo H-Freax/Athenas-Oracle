@@ -10,7 +10,7 @@ from llm_helper import get_agent_chain, get_lc_oai_tools
 with st.sidebar:
     openai_api_key = st.secrets["OPENAI_API_KEY"]
 
-st.title("🔎 Freax's GPT - Chat with search")
+st.title("🔎 Athena's Oracle - Chat with search")
 
 
 if "messages" not in st.session_state:
