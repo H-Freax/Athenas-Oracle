@@ -30,10 +30,34 @@ To embark on your journey with Athena's Oracle, follow these mystic steps:
    cd Athenas-Oracle
    pip install -r requirements.txt
    ```
-3. **Run the Application**: Awaken Athena's Oracle using the incantations of Streamlit.
+
+
+## Running the App 🚴‍♂️
+
+After you've got all the requirements set up, there's one more crucial step before you can unleash the full power of Athena's Oracle: adding your OpenAI API key. This key is like the secret password that grants you access to the vast intelligence Athena's Oracle taps into.
+
+### Securing the OpenAI API Key 🔑
+
+You have two options for managing the OpenAI API key:
+
+1. **Add to Streamlit Secrets**: You can securely store your API key by adding it to the `.streamlit/secrets.toml` file. This way, it's automatically picked up by the app, and you don't have to worry about it again. Here's how you format it in the file:
+
+   ```toml
+   OPENAI_API_KEY = "sk-yourapikeyhere"
    ```
-   streamlit run app.py
-   ```
+
+   Make sure to replace `"sk-yourapikeyhere"` with your actual OpenAI API key. 
+
+2. **User Input in Sidebar**: If you prefer, you can also set up the app to ask users to input their OpenAI API key in the sidebar each time they visit the page. This method is a bit more flexible and great for when you're sharing your creation with others but don't want to share your API key directly.
+
+### Awakening Athena's Oracle 🌞
+
+With your API key securely in place, you're ready to bring Athena's Oracle to life. Open your terminal or command prompt, navigate to the folder where you've stored Athena's Oracle, and run the following spell:
+
+```bash
+streamlit run app.py
+```
+
 
 ## Dependencies 📜🔗
 
