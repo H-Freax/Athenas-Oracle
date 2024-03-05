@@ -1,6 +1,7 @@
 # 🌌 Athena's Oracle: The AI-powered Document Insight Engine 📚
 
 Welcome to **Athena's Oracle**, the groundbreaking AI companion designed to sail through the vast ocean of documents with the wisdom and insight of the ancient goddess of wisdom herself, Athena. 🌟 Drawing upon the mighty advancements in artificial intelligence and natural language processing, Athena's Oracle empowers users to dive deep into academic papers, reports, and any form of textual content, uncovering hidden insights with ease and precision like never before.
+<img width="1469" alt="image" src="https://github.com/H-Freax/Athenas-Oracle/assets/35798640/2159d5b1-d578-4040-87cb-43b3a6cfcb9e">
 
 ## 🎉 Feature Highlights:
 We are thrilled to announce the launch of a brand-new feature designed to enhance your document analysis and knowledge acquisition experience: 🚀 Batch Downloading from Awesome Paper Lists 🚀.
