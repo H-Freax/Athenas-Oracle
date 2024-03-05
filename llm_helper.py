@@ -119,11 +119,11 @@ def get_rag_chain(file_name="Mahmoudi_Nima_202202_PhD.pdf", index_folder="index"
     conversational_qa_chain = _inputs | _context | ANSWER_PROMPT | ChatOpenAI()
     return conversational_qa_chain
 
-
+#
 # RAG fusion chain
 # source1: https://youtu.be/GchC5WxeXGc?si=6i7J0rPZI7SNwFYZ
 # source2: https://towardsdatascience.com/forget-rag-the-future-is-rag-fusion-1147298d8ad1
-def reciprocal_rank_fusion(results: list[list], k=60):
+def reciprocal_rank_fusion(results: List[List], k=60):
     from langchain.load import dumps, loads
     fused_scores = {}
     for docs in results:
@@ -356,10 +356,11 @@ def get_rag_fusion_chain_files(file_names: List[str], index_folder: str = "index
 
 
 if __name__ == "__main__":
-    question_generation_chain = get_search_query_generation_chain()
+
+    # question_generation_chain = get_search_query_generation_chain()
     print('='*50)
     print('RAG Chain')
-    filename=["2211.00191v1.Edge_Grasp_Network_A_Graph_Based_SE_3_invariant_Approach_to_Grasp_Detection.pdf","mamba1.pdf","mamba2.pdf"]
+    # filename=["mamba1.pdf","mamba2.pdf"]
     # chain = get_rag_fusion_chain_files(file_names=filename)
     # print(chain.invoke({'input': 'what is mamba', 'chat_history': []}))
     #
@@ -373,10 +374,10 @@ if __name__ == "__main__":
     # chain = get_rag_fusion_chain_files()
     # print(chain.invoke({'input': 'mamba', 'chat_history': []}))
     #
-    agent_executor = get_agent_chain(file_names=filename)
-    print(
-        agent_executor.invoke({
-            "input": "based on the source document, what is mamba??",
-            "chat_history": [],
-        })
-    )
+    # agent_executor = get_agent_chain(file_names=filename)
+    # print(
+    #     agent_executor.invoke({
+    #         "input": "based on the source document, what is mamba??",
+    #         "chat_history": [],
+    #     })
+    # )

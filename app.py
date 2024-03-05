@@ -1,7 +1,40 @@
+import base64
+
 import streamlit as st
 import os
 import embed_pdf
 import arxiv_downloader.utils
+
+import requests
+import re
+
+def extract_arxiv_links(readme_contents):
+    """提取README内容中的所有arXiv链接"""
+    arxiv_links = re.findall(r'https://arxiv.org/abs/[^\s)]+', readme_contents)
+    return arxiv_links
+
+def get_readme_contents(repo_url):
+    """通过GitHub API获取仓库README.md的内容"""
+    user_repo = repo_url.replace("https://github.com/", "")
+    api_url = f"https://api.github.com/repos/{user_repo}/contents/README.md"
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        content = response.json()['content']
+        readme_contents = base64.b64decode(content).decode('utf-8')
+        return readme_contents
+    else:
+        st.sidebar.error("Error: Unable to fetch README.md")
+        return None
+
+def download_arxiv_paper(link):
+    """下载指定的arXiv论文"""
+    arxiv_id = arxiv_downloader.utils.url_to_id(link)
+    try:
+        arxiv_downloader.utils.download(arxiv_id, "./pdf", False)
+        st.sidebar.success(f"Downloaded: {link}")
+    except Exception as e:
+        st.sidebar.error(f"Failed to download {link}: {e}")
+
 
 # create sidebar and ask for openai api key if not set in secrets
 secrets_file_path = os.path.join(".streamlit", "secrets.toml")
@@ -22,11 +55,26 @@ if not os.getenv('OPENAI_API_KEY', '').startswith("sk-"):
         "OpenAI API Key", type="password"
     )
 else:
+    # 输入GitHub链接
+    github_link = st.sidebar.text_input("GitHub Repository URL", key="github_link")
+    if github_link:
+        readme_contents = get_readme_contents(github_link)
+        if readme_contents:
+            arxiv_links = extract_arxiv_links(readme_contents)
+            if arxiv_links:
+                for link in arxiv_links:
+                    download_arxiv_paper(link)
+            else:
+                st.sidebar.warning("No arXiv links found in the README.")
+
+
+
+
     if st.sidebar.text_input("arxiv link", type="default"):
         arxiv_link = st.sidebar.text_input("arxiv link", type="default")
         arxiv_id = arxiv_downloader.utils.url_to_id(arxiv_link)
         try:
-            arxiv_downloader.utils.download(arxiv_id, "./pdf", True)
+            arxiv_downloader.utils.download(arxiv_id, "./pdf", False)
             st.sidebar.info("Done!")
         except Exception as e:
             st.sidebar.error(e)

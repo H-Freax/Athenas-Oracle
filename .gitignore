@@ -1,2 +1,4 @@
 
 .streamlit/secrets.toml
+*.pkl
+*.faiss
