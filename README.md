@@ -6,7 +6,8 @@ Welcome to **Athena's Oracle**, the groundbreaking AI companion designed to sail
 
 ## 📜 Tutorial 
 - [New Article is out now!!!] [![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [1]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-1-fb9c7b77b0f1)
-
+- [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [2]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-2-feda0b528588)
+- [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [3]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-3-1e48876f9c01)
 
 ## 🎉 Feature Highlights:
 We are thrilled to announce the launch of a brand-new feature designed to enhance your document analysis and knowledge acquisition experience: 🚀 Batch Downloading from Awesome Paper Lists 🚀.
