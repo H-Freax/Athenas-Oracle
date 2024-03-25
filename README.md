@@ -5,9 +5,12 @@ Welcome to **Athena's Oracle**, the groundbreaking AI companion designed to sail
 <img width="1469" alt="image" src="https://github.com/H-Freax/Athenas-Oracle/assets/35798640/2159d5b1-d578-4040-87cb-43b3a6cfcb9e">
 
 ## 📜 Tutorial 
-- [New Article is out now!!!] [![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [1]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-1-fb9c7b77b0f1)
+- [![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [1]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-1-fb9c7b77b0f1)
 - [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [2]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-2-feda0b528588)
 - [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [3]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-3-1e48876f9c01)
+- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [Athena's Oracle: 掌握 RAG 技术的理想跳板](https://zhuanlan.zhihu.com/p/686693403)
+- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [1]](https://zhuanlan.zhihu.com/p/689013625)
+- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [2]](https://zhuanlan.zhihu.com/p/689013764)
 
 ## 🎉 Feature Highlights:
 We are thrilled to announce the launch of a brand-new feature designed to enhance your document analysis and knowledge acquisition experience: 🚀 Batch Downloading from Awesome Paper Lists 🚀.
