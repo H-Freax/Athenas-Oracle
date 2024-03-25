@@ -1,5 +1,6 @@
 import streamlit as st
-
+import glob
+import os
 from langchain.agents import initialize_agent, AgentType
 from langchain.callbacks import StreamlitCallbackHandler
 from langchain.chat_models import ChatOpenAI
@@ -31,7 +32,28 @@ if prompt := st.chat_input(placeholder="Who won the Women's U.S. Open in 2018?")
 
     llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", openai_api_key=openai_api_key, streaming=True)
 
-    filename=["2211.00191v1.Edge_Grasp_Network_A_Graph_Based_SE_3_invariant_Approach_to_Grasp_Detection.pdf","mamba1.pdf","mamba2.pdf"]
+
+    # 定义存储PDF文件的文件夹路径
+    pdf_folder_path = './pdf'
+
+    # 使用glob模块找到文件夹下所有的PDF文件
+    pdf_files = glob.glob(os.path.join(pdf_folder_path, '*.pdf'))
+
+    # 初始化filename列表
+    filename = []
+    i=0
+    # 遍历找到的PDF文件列表，只将文件名（不包括路径）添加到filename列表中
+    for pdf_file in pdf_files:
+        if i<10:
+            # 使用os.path.basename提取文件名
+            file_name_only = os.path.basename(pdf_file)
+            filename.append(file_name_only)
+            i+=1
+
+    # 打印结果，查看所有找到的PDF文件名
+    print(filename)
+
+    # filename=[]
 
     lc_tools, _ = get_lc_oai_tools(file_names=filename)
     search_agent = initialize_agent(lc_tools, llm, agent=AgentType.OPENAI_FUNCTIONS, handle_parsing_errors=True, verbose=True)
