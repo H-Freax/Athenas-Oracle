@@ -7,6 +7,9 @@ import arxiv_downloader.utils
 
 import requests
 import re
+import pandas as pd
+from st_aggrid import AgGrid, GridOptionsBuilder
+from st_aggrid.shared import GridUpdateMode
 
 def extract_arxiv_links(readme_contents):
     """提取README内容中的所有arXiv链接"""
@@ -93,10 +96,53 @@ else:
 
 # create the app
 st.title("🔎 Welcome to Athena's Oracle")
+# 用户输入设置每页显示的行数
+items_per_page = st.number_input("Set the number of items per page:", min_value=1, max_value=100, value=10)
 
-chosen_files = st.multiselect(
-    "Choose files to search", embed_pdf.get_all_index_files(), default=None
+# 添加一个搜索框让用户输入搜索关键字
+search_query = st.text_input("Search files by name:")
+
+# 将文件列表转换为DataFrame
+file_list = embed_pdf.get_all_index_files()
+df_files = pd.DataFrame(file_list, columns=["File Name"])
+
+# 根据搜索关键字筛选文件名
+if search_query:
+    df_files = df_files[df_files["File Name"].str.contains(search_query, case=False)]
+
+# 使用GridOptionsBuilder来定制表格设置
+gb = GridOptionsBuilder.from_dataframe(df_files)
+
+# 开启过滤和排序功能
+gb.configure_default_column(groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=True)
+
+# 配置复选框进行多选
+gb.configure_selection('multiple', use_checkbox=True, rowMultiSelectWithClick=True, suppressRowDeselection=False)
+gb.configure_pagination(paginationAutoPageSize=False, paginationPageSize=items_per_page) # 使用自定义的分页大小
+gb.configure_side_bar() # 开启侧边栏以便进行过滤和列选择操作
+
+grid_options = gb.build()
+
+# 显示表格并允许用户选择
+selected_files = AgGrid(
+    df_files,
+    gridOptions=grid_options,
+    update_mode=GridUpdateMode.MODEL_CHANGED,
+    allow_unsafe_jscode=True,
+    fit_columns_on_grid_load=True,
 )
+
+# 获取选择的数据
+selected_rows = selected_files["selected_rows"]
+chosen_files = [row["File Name"] for row in selected_rows]
+
+# 显示用户选择的文件
+st.write("You selected:")
+st.write(chosen_files)
+
+# chosen_files = st.multiselect(
+#     "Choose files to search", embed_pdf.get_all_index_files(), default=None
+# )
 #
 # print(chosen_files)
 # if chosen_files:  # Check if any files are selected

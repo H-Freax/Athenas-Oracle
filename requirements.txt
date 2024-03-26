@@ -6,3 +6,4 @@ tiktoken
 langchainhub
 pypdf
 arxiv-downloader
+streamlit-aggrid

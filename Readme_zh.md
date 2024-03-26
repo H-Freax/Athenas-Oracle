@@ -3,8 +3,11 @@
 欢迎踏入**Athenas-Oracle**的殿堂，这是一个创新的AI伴侣，旨在助您驾驭庞大的文档海洋，借助古代智慧女神雅典娜之智慧和洞察力。🌟 利用人工智能和自然语言处理的最新进展，雅典娜神谕能让用户轻松、精确地深入探索学术论文、报告及任何形式的文本内容，发掘前所未有的深层见解。
 
 ## 📜 教程 [中文版即将释出]
+
 - [New Article is out now!!!] [![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [1]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-1-fb9c7b77b0f1)
+
 - [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [2]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-2-feda0b528588)
+
 - [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [3]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-3-1e48876f9c01)
 
 
