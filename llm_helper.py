@@ -1,10 +1,12 @@
 from typing import Optional, List
-
+from langchain.llms import BaseLLM  # 假设langchain有基础LLM类
+from langchain.schema.runnable import Runnable  # 引入Runnable基类
+from langchain_community.llms import Ollama
 from langchain.agents import AgentExecutor
 from langchain.agents.format_scratchpad.openai_tools import format_to_openai_tool_messages
 from langchain.agents.output_parsers.openai_tools import OpenAIToolsAgentOutputParser
 # langchain imports
-from langchain.chat_models import ChatOpenAI
+from langchain.chat_models import ChatOpenAI,ChatOllama
 from langchain.schema.runnable import RunnableMap
 from langchain.prompts.prompt import PromptTemplate
 from langchain.prompts import ChatPromptTemplate
@@ -14,8 +16,21 @@ from operator import itemgetter
 from langchain.schema.messages import HumanMessage, SystemMessage, AIMessage
 from langchain.callbacks.streamlit.streamlit_callback_handler import StreamlitCallbackHandler
 from langchain_core.prompts import MessagesPlaceholder
+from langchain_community.embeddings import OllamaEmbeddings
 
 
+def generate_text_with_ollama(prompt):
+    ollama_model_name = "llama2"
+    # "llama2:7b-chat-q6_K"
+    # "mistral:7b-instruct-q6_K"
+    # "mixtral:8x7b-instruct-v0.1-q4_K_M"
+    # "neural-chat:7b-v3.3-q6_K"
+    # "orca2:13b-q5_K_S"
+    # "phi" or try "phi:chat"
+    # "solar:10.7b-instruct-v1-q5_K_M"
+    ollama = Ollama(model=ollama_model_name, temperature=0.1)
+    response = ollama.invoke(prompt)
+    return response
 def format_docs(docs):
     res = ""
     # res = str(docs)
@@ -140,7 +155,34 @@ def reciprocal_rank_fusion(results: List[List], k=60):
     ]
     return reranked_results
 
+def get_search_query_generation_chain_ollama():
+    from langchain.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate
+    prompt = ChatPromptTemplate(
+        input_variables=['original_query'],
+        messages=[
+            SystemMessagePromptTemplate(
+                prompt=PromptTemplate(
+                    input_variables=[],
+                    template='You are a helpful assistant that generates multiple search queries based on a single input query.'
+                )
+            ),
+            HumanMessagePromptTemplate(
+                prompt=PromptTemplate(
+                    input_variables=['original_query'],
+                    template='Generate multiple search queries related to: {original_query} \n OUTPUT (4 queries):'
+                )
+            )
+        ]
+    )
 
+    generate_queries = (
+        prompt |
+        ChatOllama(ollama_model_name="llama2",temperature=0) |
+        StrOutputParser() |
+        (lambda x: x.split("\n"))
+    )
+
+    return generate_queries
 def get_search_query_generation_chain():
     from langchain.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate
     prompt = ChatPromptTemplate(
@@ -277,7 +319,17 @@ def get_search_index(file_names: List[str], index_folder: str = "index") -> List
         )
         search_indexes.append(search_index)
     return search_indexes
-
+def get_search_index_ollama(file_names: List[str], index_folder: str = "index") -> List[FAISS]:
+    search_indexes = []
+    ollama_model_name = "llama2"
+    for file_name in file_names:
+        search_index = FAISS.load_local(
+            folder_path=index_folder,
+            index_name=file_name + ".index",
+            embeddings=OllamaEmbeddings(model=ollama_model_name),
+        )
+        search_indexes.append(search_index)
+    return search_indexes
 # Adjusted to handle multiple indexes correctly
 def get_rag_chain_files(file_names: List[str], index_folder: str = "index", retrieval_cb=None):
     vectorstores = get_search_index(file_names, index_folder)
@@ -354,6 +406,117 @@ def get_rag_fusion_chain_files(file_names: List[str], index_folder: str = "index
     conversational_qa_chain = _inputs | _context | ANSWER_PROMPT | ChatOpenAI()
     return conversational_qa_chain
 
+
+# class ChatOllama(BaseLLM, Runnable):
+#     def __init__(self, model_name: str, temperature: float = 0.7):
+#         super().__init__()  # 调用基类的构造函数
+#         self.model_name = model_name
+#         self.temperature = temperature
+#         self.ollama = Ollama(model=model_name, temperature=temperature)
+#
+#     def run(self, input_data: dict) -> dict:
+#         prompt = input_data.get('prompt', '')
+#         response = self.invoke(prompt)
+#         return {"text": response}
+#
+#     def invoke(self, prompt: str) -> str:
+#         response = self.ollama.invoke(prompt)
+#         return response['choices'][0]['text'] if 'choices' in response else ""
+#
+#     def _generate(self, prompt: str, **kwargs):
+#         # 实现具体的生成逻辑
+#         return self.invoke(prompt)
+#
+#     @property
+#     def _llm_type(self):
+#         # 返回LLM类型
+#         return "ollama"
+
+
+
+# ollama_model_name = "orca2:13b-q5_K_S"
+ollama_model_name = "llama2"
+# "mistral:7b-instruct-q6_K"
+# "mixtral:8x7b-instruct-v0.1-q4_K_M"
+# "neural-chat:7b-v3.3-q6_K"
+# "orca2:13b-q5_K_S"
+# "phi" or try "phi:chat"
+# "solar:10.7b-instruct-v1-q5_K_M"
+
+def get_rag_chain_files_ollama(file_names: List[str], index_folder: str = "index", retrieval_cb=None):
+    vectorstores = get_search_index_ollama(file_names, index_folder)
+    ollama_model_name = "llama2"
+    _inputs = RunnableMap(
+        standalone_question=RunnablePassthrough.assign(
+            chat_history=lambda x: _format_chat_history(x["chat_history"])
+        )
+        | CONDENSE_QUESTION_PROMPT
+        | ChatOllama(model_name=ollama_model_name, temperature=0.7)
+        | StrOutputParser(),
+    )
+
+    if retrieval_cb is None:
+        retrieval_cb = lambda x: x
+    # Define a function to handle retrieval from multiple indexes and fuse the results
+    def multi_retriever_fusion(query):
+        docs = []
+        for vectorstore in vectorstores:
+            # Assuming the retriever has a method like `retrieve` for fetching documents
+            retriever = vectorstore.as_retriever()
+            retrieved_docs = retriever.get_relevant_documents(query)  # Use the correct method to retrieve documents
+            docs += retrieved_docs
+        return format_docs(docs)
+
+
+    _context = {
+        "context": itemgetter("standalone_question") | RunnablePassthrough(retrieval_cb) | multi_retriever_fusion,
+        "question": lambda x: x["standalone_question"],
+    }
+
+    conversational_qa_chain = _inputs | _context | ANSWER_PROMPT | ChatOllama(model_name=ollama_model_name, temperature=0.7)
+    return conversational_qa_chain
+
+def get_rag_fusion_chain_files_ollama(file_names: List[str], index_folder: str = "index", retrieval_cb=None):
+    vectorstores = get_search_index_ollama(file_names, index_folder)
+    ollama_model_name ="llama2"
+    query_generation_chain = get_search_query_generation_chain_ollama()
+    _inputs = RunnableMap(
+        standalone_question=RunnablePassthrough.assign(
+            chat_history=lambda x: _format_chat_history(x["chat_history"])
+        )
+        | CONDENSE_QUESTION_PROMPT
+        | ChatOllama(model_name=ollama_model_name, temperature=0.7)
+        | StrOutputParser(),
+    )
+
+    if retrieval_cb is None:
+        retrieval_cb = lambda x: x
+    def retrieve_and_fuse_queries(queries):
+        all_docs = []
+        for query in queries:
+            docs_for_query = []
+            for vectorstore in vectorstores:
+                retriever = vectorstore.as_retriever()
+                retrieved_docs = retriever.get_relevant_documents(query)  # Adjust based on actual method signature
+                docs_for_query += [doc for doc in retrieved_docs]
+            all_docs.append(docs_for_query)
+        fused_docs = reciprocal_rank_fusion(all_docs)
+        return [doc for doc, _ in fused_docs]  # Adjust based on the structure expected by format_docs
+
+    _context = {
+        "context":
+            RunnablePassthrough.assign(
+                original_query=lambda x: x["standalone_question"]
+            )
+            | query_generation_chain
+            | retrieval_cb
+            | (lambda queries: retrieve_and_fuse_queries(queries))
+            | format_docs,
+        "question": lambda x: x["standalone_question"],
+    }
+
+    conversational_qa_chain = _inputs | _context | ANSWER_PROMPT | ChatOllama(model_name="你选择的模型名", temperature=0.7)
+    return conversational_qa_chain
 
 if __name__ == "__main__":
 
