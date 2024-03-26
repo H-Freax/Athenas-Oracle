@@ -2,6 +2,10 @@
 [中文版README](https://github.com/H-Freax/Athenas-Oracle/blob/main/Readme_zh.md)
 
 Welcome to **Athena's Oracle**, the groundbreaking AI companion designed to sail through the vast ocean of documents with the wisdom and insight of the ancient goddess of wisdom herself, Athena. 🌟 Drawing upon the mighty advancements in artificial intelligence and natural language processing, Athena's Oracle empowers users to dive deep into academic papers, reports, and any form of textual content, uncovering hidden insights with ease and precision like never before.
+## 1.0.1:
+<img width="1469" alt="image" src="https://github.com/H-Freax/Athenas-Oracle/assets/35798640/2f1c403d-e2ca-436b-8673-03a8441f6f8d">
+
+## 1.0.0：
 <img width="1469" alt="image" src="https://github.com/H-Freax/Athenas-Oracle/assets/35798640/2159d5b1-d578-4040-87cb-43b3a6cfcb9e">
 
 ## 📜 Tutorial 
