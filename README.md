@@ -85,7 +85,7 @@ streamlit run app.py
 
 You may also embed your pdf, or you may raise error:
 
-<img width="1469" alt="image" src="assets/embed-error.jpg">
+<img width="1469" alt="image" src="assets/embed-error.png">
 
 ## Embarking on Your Quest with Athena's Oracle 🌍✨
 Once Athena's Oracle has awakened, you stand at the threshold of untold knowledge. Follow these steps to navigate through the wisdom of the ages:
