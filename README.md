@@ -79,6 +79,14 @@ With your API key securely in place, you're ready to bring Athena's Oracle to li
 streamlit run app.py
 ```
 
+**Note**: Set `allow_dangerous_deserialization: bool = True` first, where you can find in `faiss.py`.
+
+<img width="1469" alt="image" src="assets/faiss-library-error.png">
+
+You may also embed your pdf, or you may raise error:
+
+<img width="1469" alt="image" src="assets/embed-error.png">
+
 ## Embarking on Your Quest with Athena's Oracle 🌍✨
 Once Athena's Oracle has awakened, you stand at the threshold of untold knowledge. Follow these steps to navigate through the wisdom of the ages:
 
