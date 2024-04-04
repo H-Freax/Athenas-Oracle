@@ -74,8 +74,9 @@ else:
 
 
     if st.sidebar.text_input("arxiv link", type="default"):
-        arxiv_link = st.sidebar.text_input("arxiv link", type="default")
-        arxiv_id = arxiv_downloader.utils.url_to_id(arxiv_link)
+        arxiv_link = st.sidebar.text_input("arxiv link", type="default", key = "unique_arxiv_link")
+        if arxiv_link:
+            arxiv_id = arxiv_downloader.utils.url_to_id(arxiv_link) # fix the same arxiv id bug (no unique key)
         try:
             arxiv_downloader.utils.download(arxiv_id, "./pdf", False)
             st.sidebar.info("Done!")
