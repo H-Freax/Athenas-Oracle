@@ -4,12 +4,14 @@
 
 ## 📜 教程
 - [![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [1]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-1-fb9c7b77b0f1)
-- [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [2]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-2-feda0b528588)
-
-- [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [3]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-3-1e48876f9c01)
-- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [Athena's Oracle: 掌握 RAG 技术的理想跳板](https://zhuanlan.zhihu.com/p/686693403)
-- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [1]](https://zhuanlan.zhihu.com/p/689013625)
-- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [2]](https://zhuanlan.zhihu.com/p/689013764)
+- [![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [2]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-2-feda0b528588)
+- [![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [3]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-3-1e48876f9c01)
+- [New Article is out now!!!][![Medium](https://img.shields.io/badge/Medium-12100E?style=&logo=medium&logoColor=white)](https://medium.com/@limyoonaxi) : [RAG Tutorial: Start from Athenas-Oracle [4]](https://medium.com/@limyoonaxi/rag-tutorial-start-from-athenas-oracle-4-a991c9428be4)
+- [![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [Athena's Oracle: 掌握 RAG 技术的理想跳板](https://zhuanlan.zhihu.com/p/686693403)
+- [![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [1]](https://zhuanlan.zhihu.com/p/689013625)
+- [![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [2]](https://zhuanlan.zhihu.com/p/689013764)
+- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [3]](https://zhuanlan.zhihu.com/p/690887234)
+- [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [4]](https://zhuanlan.zhihu.com/p/690887136)
 
 ## 🎉 特色亮点
 我们非常高兴地宣布推出一项全新特色，旨在提升您的文档分析和知识获取体验：🚀 从 Awesome Paper 列表批量下载 🚀。
