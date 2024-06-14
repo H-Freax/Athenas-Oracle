@@ -2,6 +2,11 @@
 [中文版README](https://github.com/H-Freax/Athenas-Oracle/blob/main/Readme_zh.md)
 
 Welcome to **Athena's Oracle**, the groundbreaking AI companion designed to sail through the vast ocean of documents with the wisdom and insight of the ancient goddess of wisdom herself, Athena. 🌟 Drawing upon the mighty advancements in artificial intelligence and natural language processing, Athena's Oracle empowers users to dive deep into academic papers, reports, and any form of textual content, uncovering hidden insights with ease and precision like never before.
+
+## News!
+The following work is based on Athena's Oracle Optimization Development!
+[PaperHelper](https://github.com/JerryYin777/PaperHelper)
+
 ## 1.0.1:
 <img width="1469" alt="image" src="https://github.com/H-Freax/Athenas-Oracle/assets/35798640/2f1c403d-e2ca-436b-8673-03a8441f6f8d">
 
@@ -20,6 +25,7 @@ Welcome to **Athena's Oracle**, the groundbreaking AI companion designed to sail
 - [New Article is out now!!!][![Zhihu](https://img.shields.io/badge/Zhihu-3982f7?style=&logo=zhihu&logoColor=white)](https://www.zhihu.com/people/freax-23/posts) [RAG 教程: 从Athenas-Oracle开始 [4]](https://zhuanlan.zhihu.com/p/690887136)
 
 ## 🎉 Feature Highlights:
+
 We are thrilled to announce the launch of a brand-new feature designed to enhance your document analysis and knowledge acquisition experience: 🚀 Batch Downloading from Awesome Paper Lists 🚀.
 
 📚 Batch Downloading: Automatically extract arXiv links from awesome paper lists on GitHub and download papers in bulk to your local system.
